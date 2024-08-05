@@ -1,0 +1,114 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+import ContactCTA from '../components/ContactCTA.astro';
+import Hero from '../components/Hero.astro';
+---
+
+<BaseLayout title="About | Amine Cheikh" description="About Cheikh">
+	<div class="stack gap-20">
+		<main class="wrapper about">
+			<Hero
+				title="À propos de moi"
+				tagline="Dans cette page, vous apprendrez beaucoup sur moi ! "
+			>
+				<img
+					width="1553"
+					height="873"
+					src="/assets/aminef.jpg"
+					alt="Image de Amine"
+				/>
+			</Hero>
+
+			<section>
+				<h2 class="section-title">Background</h2>
+				<div class="content">
+					<p>
+						Pasionnée par les jeux vidéo et la technologie en général, j'ai connu le monde de l'informatique dès la première année à l'université.
+					</p>
+					<br/>
+					<p>
+						Ayant pour objectif de devenir développeur fullstack ou en intelligence artificielle, j'espère pour voir mettre mes compétences aux services des autres !
+					</p>
+					<br/>
+
+					<p>
+						Je suis également un grand sportif ! À coté de mes études je fais du football en club à un niveau régional.
+					</p>
+				</div>
+			</section>
+			<section>
+				<h2 class="section-title">Parcours scolaire</h2>
+				<div class="content">
+					<p>Titulaire de 2 baccalauréats (Scientifique et Science et technologie en laboratoire), j'entrepris des études à l'université. Aujourd'hui je suis diplomé d'une licence d'informatique général (Bac +3) et actuellement en master IWOCS</p>
+				</div>
+			</section>
+			<section>
+				<h2 class="section-title">Personnalité</h2>
+				<div class="content">
+					<p>Ce qui caractérise sont : mon sérieux, ma curiosité et ma sociabilité mais surtout ma DÉTERMINATION à vouloir faire toujours mieux !</p>
+				</div>
+			</section>
+		</main>
+
+		<ContactCTA />
+	</div>
+</BaseLayout>
+
+<style>
+	.about {
+		display: flex;
+		flex-direction: column;
+		gap: 3.5rem;
+	}
+
+	img {
+		margin-top: 1.5rem;
+		border-radius: 1.5rem;
+		box-shadow: var(--shadow-md);
+	}
+
+	section {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		color: var(--gray-200);
+	}
+
+	.section-title {
+		grid-column-start: 1;
+		font-size: var(--text-xl);
+		color: var(--gray-0);
+	}
+
+	.content {
+		grid-column: 2 / 4;
+	}
+
+	.content :global(a) {
+		text-decoration: 1px solid underline transparent;
+		text-underline-offset: 0.25em;
+		transition: text-decoration-color var(--theme-transition);
+	}
+
+	.content :global(a:hover),
+	.content :global(a:focus) {
+		text-decoration-color: currentColor;
+	}
+
+	@media (min-width: 50em) {
+		.about {
+			display: grid;
+			grid-template-columns: 1fr 60% 1fr;
+		}
+
+		.about > :global(:first-child) {
+			grid-column-start: 2;
+		}
+
+		section {
+			display: contents;
+			font-size: var(--text-lg);
+		}
+	}
+</style>
